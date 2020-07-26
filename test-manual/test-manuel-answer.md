@@ -1,25 +1,25 @@
-##Technical knowledge for QA
-###What is a specification?
+## Technical knowledge for QA
+### What is a specification?
 A specification is a  description of a component’s function or 
 a description of a feature in terms of its output values for specified input values under specified conditions,
 
-###What is a test plan?
+### What is a test plan?
 The test plan is the Documentation describing the test objectives to be achieved and the means and the schedule for achieving them, organized to coordinate testing activities.
 
-###What is a test case?
+### What is a test case?
 A test case is a set of preconditions, inputs, actions (where applicable), expected results and postconditions, developed based on test conditions.
 
-###What is a bug?
+### What is a bug?
 A bug or defect is An imperfection or deficiency in a work product where it does not meet its requirements or specifications.
 
-###What is the purpose of a bug report? 
+### What is the purpose of a bug report? 
 The purpose of the bug report is the Documentation of the occurrence, nature, and status of a defect in order to reproduce and correct it.
 
 
-###What are the parts of a bug report?
+### What are the parts of a bug report?
 a bug report includes in my opinion 4 part: the input values or precondition, the description or the scenarios, the expected results and the results obtained
 
-###What is unit, functional, integration, regression, black/white box, acceptance testing?
+### What is unit, functional, integration, regression, black/white box, acceptance testing?
 
 **Unit Testing** is the testing of individual software components.
 
@@ -116,6 +116,25 @@ Once logged in
 
 
 Write a bug report
+-
+**Preconditions**
+1. bug report:
+2. User is logged
+3. User choose is language
+5. user active is microphone
+6. User is on the calling page
 
-bug report:
+**steps**
+1. When I click on transfer button
+2. when I select an agent, team, or type in an external number to transfer to
+3. When I’ve pushed the "Transfer now" button
+4. When the external party does not answer the call,
+
+**Expected Result**
+1. Then Modal appears on button press. 
+2. 3. Then the call will immediately transfer out of Aircall and the external party can either accept or reject the transfer.
+4. then the call will return back to the same user.   
+
+**results obtained**
+4. The call doesn't returned to the same user.
     
