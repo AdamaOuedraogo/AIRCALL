@@ -1,1 +1,3 @@
-.vscode
+
+test-front/cypress/videos/login.feature.mp4
+test-front/cypress/videos/in-call.feature.mp4

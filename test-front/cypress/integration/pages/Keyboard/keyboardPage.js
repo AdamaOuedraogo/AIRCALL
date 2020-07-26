@@ -2,10 +2,7 @@ class KeyboardPage{
 
 
     constructor(){
-
-        this.call = '[data-test=icon-button-icon]';
-   
-
+        this.call = '[data-test=keyboard-button-dial]';
     }
 
     dialaphonenumber(numbers){
@@ -15,13 +12,12 @@ class KeyboardPage{
         return this;
     }
 
-    call(number){
-
-        this.dialaphonenumber(number);
+    makeCall(numeros){
+        this.dialaphonenumber(numeros);
         const callButton= cy.get(this.call);
         callButton.click();
-
-    }
+        return this;
+    }   
 
 
 }

@@ -2,15 +2,17 @@
 import {Given , When, And, Then} from 'cypress-cucumber-preprocessor/steps';
 import LoginPage from '../pages/login/loginPage';
 import OnbordingPage from '../pages/onbording/onbordingPage';
-import Keyboard from '../pages/Keyboard/keyboardPage';
+import KeyboardPage from '../pages/Keyboard/keyboardPage';
 import TodoPage from '../pages/todo/todoPage'
+import InCallPage from '../pages/in-call/incallPage';
 
 
 
 const loginPage = new LoginPage();
 const onbordingPage = new OnbordingPage();
 const todoPage = new TodoPage();
-const keyboard = new Keyboard();
+const keyboardPage = new KeyboardPage();
+const incallPage = new InCallPage();
 
 
 Given(`User is logged with username {string} and password {string}`,(username,password)=>{
@@ -38,86 +40,111 @@ When(`I click on keyboard page`,()=>{
 })
 
 When(`I make call to user1 {string}`,(num)=>{
-
-    keyboard.call(num);
-
+    keyboardPage.makeCall(num); 
 })
 
 When(`User1 take the call`,()=>{
 
+    
+    cy.url({timeout: 20000}).should('include', incallPage.getUrl());
+
 })
 When(`I Press the mute button`,()=>{
+
+    incallPage.mute();
 
 })
 
 Then(`The mute button will light up white to indicate the call is muted`,()=>{
+
+    incallPage.getunmunteButton().should('be.visible');
 
 })
 
 
 
 // Scenario: Turn the Mute function of
-When(`I press the mute button again.`,()=>{
+When(`I press the unmute button`,()=>{
+    incallPage.unmute();
 
 })
 Then(`The white color desappear and the mute button become as before.`,()=>{
+
+    incallPage.getmuteButton().should('be.visible');
+
 
 })
 
 //Scenario: Hold a call
 When(`I press the hold button`,()=>{
+    incallPage.hold();
 
 })
 
 Then(`the Hold button will light up to indicate the call is Hold and you can heard music`,()=>{
+    incallPage.getunholdButton().should('be.visible');
 
 })
 
 //Scenario: Turn hold function of
 
-When(`I press the hold button again`;()=>{
+When(`I press the unhold button`,()=>{
+    incallPage.unhold();
 
 })
 
 
-Then(`the light up desappear and the Hold button become like before`,()=>{
+Then(`Then the light up desappear and the Hold button become like before`,()=>{
+    incallPage.getHoldbutton().should('be.visible');
 
 })
-
 
 //Scenario: Assign a call
-When(`I click on Assign this call button`;()=>{
+When(`I click on Assign this call button`,()=>{
+    incallPage.assign();
 
 })
 
 
 Then(`a new modal should appear and you can assign to teammate`,()=>{
+    incallPage.getassignclosemodalButton().should('be.visible');
+    incallPage.closeassignModal();
 
 })
-When(`clicking on an agent,`,()=>{
 
-})
-
-Then(`view changes and we comeback on calling page`,()=>{
-
-})
 
 //Scenario: Tag a call
 
-// When I click on tag button
-// Then Then a new modal should appear and you can select a tag to categorize your call
-// When I clicking on an agent,
-// Then Then view changes, tag is selected and we comeback on calling page
+When(`I click on tag button`,()=>{
+    incallPage.tags();
 
-// Scenario: Take Note in call
-// When I click on notes button
-// When I Click on done button after add note
-// Then a new modal should appear and you can quickly add notes znd notes is save
+})
+Then(`a new modal should appear and you can select a tag to categorize your call`,()=>{
+    incallPage.getTagPanelDone().should('be.visible');
+    incallPage.getTagPanelDone().click();
 
-// Scenario: Take Note in call
-// When a call the number "+33689434778"
-// When i click on Add button
-// When I fill in the necessary fields "first name", "Last Name", "company name"
-// When I click on save button
-// Then it should go back to in-call view and update the view
+})
+
+
+//Scenario: Take Note in call
+
+When(`I click on notes button`,()=>{
+    incallPage.openNotes();
+
+})
+When(`I add note {string} and save`,(message)=>{
+    incallPage.setNotes(message);
+    incallPage.saveNotes();
+
+})
+
+Then(`notes is save`,()=>{
+    incallPage.openNotes();
+    cy.contains('my note').should('be.visible');
+    incallPage.saveNotes();
+    incallPage.endCall();
+
+
+})
+
 

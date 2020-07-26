@@ -32,10 +32,10 @@ To access the test plan:
 * Password: 8jD6XLPpes6S6wvQjn3S
 
 Once logged in
-* To access the test plan Go to the "TEST RUN & RESULT" tab and click on Front-end Then in the page that appears click on test run
-* To see all the tests: click on the ***TESTS CASES*** tab
-* Click on the ***TO DO*** ​​tab to see the current test run assigned to the user Adama OUEDRAOGO
-* Finally, the ***OVERVIEW*** tab gives you an overview of the test plan, current test run, Milestone ... ...
+* To access the test plan Go to the **TEST RUN & RESULT** tab and click on Front-end Then in the page that appears click on test run
+* To see all the tests: click on the **TESTS CASES** tab
+* Click on the **TO DO** ​​tab to see the current test run assigned to the user Adama OUEDRAOGO
+* Finally, the **OVERVIEW** tab gives you an overview of the test plan, current test run, Milestone ... ...
 
 
 Lancement des test
